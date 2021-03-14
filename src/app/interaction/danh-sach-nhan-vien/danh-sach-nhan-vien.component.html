@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let item of danhSachNV; let stt=index">
+      <app-item-nhan-vien [nhanVien]="item" (eventNV)="thich($event)"></app-item-nhan-vien>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Danh sach Like</h3>
+      <p *ngFor="let nv of danhSachNV">
+        {{ nv.ten }} - {{ nv.soLike }}
+      </p>
+    </div>
+  </div>
+</div>

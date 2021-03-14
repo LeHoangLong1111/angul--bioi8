@@ -1,0 +1,54 @@
+<h3 style="color:red">*ngFor</h3>
+
+<ng-container *ngFor="let item of danhSachNhanVien; let stt = index">
+  <div *ngIf="item.tuoi === '22'">
+    {{stt + 1}}. {{item.ten}} + {{item.tuoi}}
+  </div>
+</ng-container>
+
+<ng-container *ngFor="let item of listMovie; let stt = index">
+  <div>
+    {{stt + 1}}. {{item.tenPhim}} + {{item.chiTietPhim}}
+  </div>
+</ng-container>
+
+<h3 style="color:red">Bài tập thêm sản phẩm</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+      <div class="form-group">
+        <label>Mã sản phẩm</label>
+        <input type="text" class="form-control" #maSP>
+      </div>
+      <div class="form-group">
+        <label>Tên sản phẩm</label>
+        <input type="text" class="form-control" #tenSP>
+      </div>
+      <div class="form-group">
+        <label>Giá sản phẩm</label>
+        <input type="text" class="form-control" #giaSP>
+      </div>
+      <button class="btn btn-success" (click)="themSP(maSP.value, tenSP.value, giaSP.value)">Thêm sản
+        phẩm</button>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Mã</th>
+          <th>Tên</th>
+          <th>Giá</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of danhSachSanPham; let soTT = index">
+          <td>{{soTT+1}}</td>
+          <td>{{item.maSanPham}}</td>
+          <td>{{item.tenSanPham}}</td>
+          <td>{{item.giaSanPham}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

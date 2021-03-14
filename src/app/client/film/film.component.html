@@ -1,0 +1,12 @@
+<div class="card">
+  <img class="card-img-top" [src]="film.hinhAnh" alt="" width="100" height="250" />
+  <div class="card-body">
+    <h4 class="card-title">{{film.tenPhim}}</h4>
+    <p class="card-text">{{film.moTa}}</p>
+    <p class="card-text">{{film.ngayKhoiChieu}}</p>
+    <a class="btn btn-primary" routerLink="/chi-tiet/{{ film.maPhim }}">Chi tiết</a>
+    <a class="btn btn-primary" routerLink="/chi-tiet" [queryParams]="{ tenPhim: film.tenPhim, idPhim: film.maPhim }">Chi
+      tiết</a>
+  </div>
+
+</div>

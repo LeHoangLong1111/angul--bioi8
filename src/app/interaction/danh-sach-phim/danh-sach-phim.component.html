@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3" *ngFor="let item of danhSachPhim; let stt=index">
+      <app-item-phim [phim]="item" (eventPhim)="thich($event)"></app-item-phim>
+      <app-item-phim [phim]="item" (eventPhim)="thich($event)"></app-item-phim>
+      <app-item-phim [phim]="item" (eventPhim)="thich($event)"></app-item-phim>
+    </div>
+    <button (click)="thayDoiGia()">View children demo</button>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Danh sach Like</h3>
+      <p *ngFor="let phim of danhSachPhim">
+        {{ phim.tenPhim }} - {{ phim.soLike }}
+      </p>
+    </div>
+  </div>
+</div>

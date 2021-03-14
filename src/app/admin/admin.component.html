@@ -1,0 +1,48 @@
+<div class="container">
+  <h3>Đăng nhập Admin Form</h3>
+  <form
+    #dangNhapAdminForm="ngForm"
+    (ngSubmit)="dangNhapAdmin(dangNhapAdminForm)"
+  >
+    <div class="form-group">
+      <span>Tài khoản</span>
+      <input
+        #TaiKhoan="ngModel"
+        class="form-control"
+        name="taiKhoan"
+        required
+        ngModel
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="TaiKhoan.touched && TaiKhoan.errors?.required"
+      >
+        <span class="text text-danger"> Tài khoản không được rỗng </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <span>Mật khẩu</span>
+      <input
+        type="password"
+        class="form-control"
+        name="matKhau"
+        ngModel
+        required
+        #MatKhau="ngModel"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="MatKhau.touched && MatKhau.errors?.required"
+      >
+        <span class="text text-danger"> Mật Khẩu không được rỗng </span>
+      </div>
+    </div>
+    <button
+      [disabled]="dangNhapAdminForm?.invalid"
+      type="submit"
+      class="btn btn-success"
+    >
+      Đăng Nhập
+    </button>
+  </form>
+</div>

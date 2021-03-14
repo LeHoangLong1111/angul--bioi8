@@ -1,0 +1,96 @@
+<div class="container">
+  <h3>Đăng ký tài khoản</h3>
+  <form #dangKyForm="ngForm" (ngSubmit)="dangKy(dangKyForm)">
+    <div class="form-group">
+      <span>Tài khoản</span>
+      <input
+        #TaiKhoan="ngModel"
+        class="form-control"
+        name="taiKhoan"
+        required
+        ngModel
+        [ngModel]="(tkValue)"
+      />
+      {{TaiKhoan.value}}
+      <div
+        class="alert alert-danger"
+        *ngIf="TaiKhoan.touched && TaiKhoan.errors"
+      >
+        <span class="text text-danger"> Tài khoản không được rỗng </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <span>Mật khẩu</span>
+      <input type="password" class="form-control" name="matKhau" ngModel />
+    </div>
+    <div class="form-group">
+      <span>Email</span>
+      <input
+        class="form-control"
+        name="email"
+        ngModel
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        #Email="ngModel"
+      />
+
+      <div
+        class="alert alert-danger"
+        *ngIf="Email.control.touched && Email.control.errors?.pattern"
+      >
+        <span class="text text-danger">Không hợp lệ</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <span>Họ tên</span>
+      <input
+        class="form-control"
+        name="hoTen"
+        ngModel
+        required
+        [pattern]="usernamePattern"
+        #HoTen="ngModel"
+      />
+
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          HoTen.touched && (HoTen.errors?.minlength || HoTen.errors?.maxlength)
+        "
+      >
+        <span class="text text-danger">Độ dài ký tự 6 tới 32 </span>
+      </div>
+
+      <div
+        class="alert alert-danger"
+        *ngIf="HoTen.touched && HoTen.errors?.required"
+      >
+        <span class="text text-danger">Không được rỗng</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <span>Số điện thoại</span>
+      <input class="form-control" name="sdt" ngModel />
+    </div>
+    <button [disabled]="dangKyForm?.invalid"  type="submit" class="btn btn-success">Đăng ký</button>
+
+  </form>
+
+  <table class="table">
+    <thead>
+      <th>Tài khoản</th>
+      <th>Họ tên</th>
+      <th>Email</th>
+      <th>Số điện thoại</th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let nguoiDung of danhSachNguoiDung">
+        <td>{{ nguoiDung.email }}</td>
+        <td>{{ nguoiDung.hoTen }}</td>
+        <td>{{ nguoiDung.email }}</td>
+        <td>{{ nguoiDung.sdt }}</td>
+        <td><button>Chỉnh sửa</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

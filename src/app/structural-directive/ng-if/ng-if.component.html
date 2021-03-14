@@ -1,0 +1,35 @@
+<!--Case 1-->
+<!-- <div id="dangNhap" *ngIf="status">
+  <p>Xin chao FE56</p>
+  <button (click)="dangXuat()">Dang xuat</button>
+</div>
+<div id="dangXuat" *ngIf="!status">
+  <p>Dang nhap di</p>
+  <button (click)="dangNhap()">Dang nhap</button>
+</div> -->
+
+<!--Case 2-->
+<div id="dangNhap" *ngIf="status; else dangXuatTemplate">
+  <p>Xin chao FE56</p>
+  <button (click)="dangXuat()">Dang xuat</button>
+</div>
+<ng-template #dangXuatTemplate>
+  <p>Dang nhap di</p>
+  <button (click)="dangNhap()">Dang nhap</button>
+</ng-template>
+
+
+<!-- Giai thich co che hoat dong *ngIf -->
+<!-- <div *ngIf="true">
+  abcde
+</div> -->
+<!--convert-->
+<!-- <ng-template [ngIf]="true">
+  <div>abcde</div>
+</ng-template> -->
+
+<!-- <ng-template *ngIf="true">abc</ng-template> -->
+<!--convert-->
+<!-- <ng-template [ngIf]="true">
+  <ng-template>abcde</ng-template>
+</ng-template> -->
